@@ -4,15 +4,21 @@
     "api",
     "app"
   ],
+  "engines": {
+    "node": "8.1.2"
+  },
   "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build --workspace=app",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true npm run build --workspace=app",
     "start:api": "npm run start --workspace=api",
     "dev:api": "npm run build && npm run start:dev --workspace=api "
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
